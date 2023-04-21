@@ -1,9 +1,13 @@
 import React from "react";
+import emoji from "react-easy-emoji";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
+import landingPerson from "../../assests/lottie/landingPerson";
+import DisplayLottie from "../../components/displayLottie/DisplayLottie";
+// eslint-disable-next-line
 import FeelingProud from "./FeelingProud";
 
 export default function Greeting(props) {
@@ -16,6 +20,7 @@ export default function Greeting(props) {
             <div>
               <h1 className="greeting-text" style={{ color: theme.text }}>
                 {greeting.title}
+                <span className="wave-emoji">{emoji("👋")}</span>
               </h1>
               {greeting.nickname && (
                 <h2 className="greeting-nickname" style={{ color: theme.text }}>
@@ -31,7 +36,14 @@ export default function Greeting(props) {
               <SocialMedia theme={theme} />
               <div className="portfolio-repo-btn-div">
                 <Button
-                  text="⭐ Star Me On Github"
+                  text="Github"
+                  newTab={true}
+                  href={greeting.portfolio_repository}
+                  theme={theme}
+                  className="portfolio-repo-btn"
+                />
+                <Button
+                  text="⭐ Star Github2"
                   newTab={true}
                   href={greeting.portfolio_repository}
                   theme={theme}
@@ -49,7 +61,8 @@ export default function Greeting(props) {
 							alt="saad sitting on table"
 							src={require("../../assests/images/feelingProud.svg")}
 						></img> */}
-            <FeelingProud theme={theme} />
+            {/* <FeelingProud theme={theme} /> */}
+            <DisplayLottie animationData={landingPerson} />
           </div>
         </div>
       </div>
